@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  blockchain:
+    image: ububtu/rust:v1
+    restart: always
+    container_name: blockchain
+    environment:
+        TZ: 'Asia/Shanghai'
+    ports:
+      - 8000:8000
+      - 9000:9000
+      - 9009:9009
+    volumes:
+      - /data/myrust/:/data/myrust/

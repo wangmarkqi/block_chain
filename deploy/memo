@@ -1,0 +1,5 @@
+1 docker logs -f blockchain可以看日志
+2 两个dockerfile要放到根目录外面
+3 docker里面要用0.0.0.0
+4 如果Dockerfile 中间不设置ENV，名言说：仅仅凭借映射.env 起不来，哥没有验证。
+5 pyo3中调用python和anaconda冲突，要使用没有anaconda的环境。

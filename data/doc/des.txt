@@ -1,0 +1,24 @@
+nsqlookupd
+nsqd --lookupd-tcp-address=127.0.0.1:4160
+nsqadmin --lookupd-http-address=127.0.0.1:4161
+
+
+choco
+https://chocolatey.org/install#individual
+
+证书生成
+https://myssl.com/create_test_cert.html
+
+
+sm证书
+openssl ecparam -genkey -name SM2 -out ca.key
+
+openssl req -new -x509 -sha256 -key ca.key -out ca.crt -days 10000 -subj '/C=CN/ST=Beijing/L=Haidian/O=Datang/OU=SDT/CN=Shixun/emailAddress=dongzy08@163.com'
+
+openssl ecparam -genkey -name SM2 -out server.key
+openssl req -new -key server.key -out server.csr
+
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+
+
+openssl verify -verbose -ca.crt < server.crt
